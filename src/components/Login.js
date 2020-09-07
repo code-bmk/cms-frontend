@@ -14,6 +14,7 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
+      errorMessage: '',
       loggedIn
     }
 
@@ -31,24 +32,40 @@ class Login extends Component {
   
     const data = { username: username , password: password};
 
-    fetch('https://cryptic-escarpment-29124.herokuapp.com/authenticate', {
-      method: 'POST', // or 'PUT'
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Success:', data);
-      localStorage.setItem("token",data.token);
-      this.setState({
-        loggedIn: true
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+  };
+  fetch('https://cryptic-escarpment-29124.herokuapp.com/authenticate', requestOptions)
+      .then(async response => {
+          const data = await response.json();
+
+          // check for error response
+          if (!response.ok) {
+              // get error message from body or default to response status
+              const error = (data && data.message) || response.status;
+              this.setState({
+                loggedIn: false
+              })
+              return Promise.reject(error);
+          }
+
+          localStorage.setItem("token",data.token);
+          this.setState({
+            loggedIn: true
+          })
       })
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+      .catch(error => {
+          this.setState({ errorMessage: error.toString() });
+          this.setState({
+            loggedIn: false
+          })
+          console.error('There was an error!', error);
+      });
+
+
+
   }
   render() {
     if(this.state.loggedIn){
