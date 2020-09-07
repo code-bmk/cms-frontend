@@ -36,6 +36,23 @@ class Login extends Component {
       })
 
     }
+
+    const data = { username: 'beni' , password: 'beni'};
+
+    fetch('https://cryptic-escarpment-29124.herokuapp.com/authenticate', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
   }
   render() {
     if(this.state.loggedIn){
