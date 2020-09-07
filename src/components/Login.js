@@ -28,16 +28,8 @@ class Login extends Component {
   submitForm(e){
     e.preventDefault()
     const {username, password} = this.state;
-    // login magic
-    if(username === "a" && password == "a"){
-      localStorage.setItem("token","asadsdas");
-      this.setState({
-        loggedIn: true
-      })
-
-    }
-
-    const data = { username: 'beni' , password: 'beni'};
+  
+    const data = { username: username , password: password};
 
     fetch('https://cryptic-escarpment-29124.herokuapp.com/authenticate', {
       method: 'POST', // or 'PUT'
@@ -49,6 +41,10 @@ class Login extends Component {
     .then(response => response.json())
     .then(data => {
       console.log('Success:', data);
+      localStorage.setItem("token",data.token);
+      this.setState({
+        loggedIn: true
+      })
     })
     .catch((error) => {
       console.error('Error:', error);
