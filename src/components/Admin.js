@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link, Redirect} from 'react-router-dom';
+import {Editor, EditorState} from 'draft-js';
 
 class Admin extends React.Component {
   constructor(props){
@@ -10,8 +11,14 @@ class Admin extends React.Component {
       loggedIn = false
     }
     this.state = {
+      editorState: EditorState.createEmpty(),
       loggedIn
     }
+  }
+  onChange = (editorState) => {
+    this.setState({
+      editorState
+    })
   }
   render() {
 
@@ -22,6 +29,7 @@ class Admin extends React.Component {
     return(
       <div className="admin">
        <h1>This is an admin page. only auth people can see this</h1>
+       <Editor editorState={this.state.editorState} onChange={this.onChange}></Editor>
        <Link to="/logout">Logout</Link>
       </div>
     )
