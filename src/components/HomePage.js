@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Card } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 class HomePage extends React.Component {
     
     constructor(props) {
@@ -17,14 +20,18 @@ class HomePage extends React.Component {
         });
       }
     render() { 
-        return ( <div>
+        return ( 
+        <div>
             <h1>HomePage</h1>
             <div className="posts">
-            <ul>
                 {this.state.posts.map(post =>
-                <li key={post.id}>{post.content}</li>
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">{post.title}</h5>
+                    <p class="card-text">{post.content}</p>
+                    </div>
+                </div>
                 )}
-            </ul> 
             </div>
         </div>);
     }
