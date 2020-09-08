@@ -10,7 +10,7 @@ class Logout extends React.Component {
     return(
       <div className="logOut">
         <h1> You have been logged out</h1>
-        <Link to="/">Login Again</Link>
+        <Link to="/Login">Login Again</Link>
       </div>
     )
   }
