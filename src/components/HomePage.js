@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {convertFromRaw} from 'draft-js';
+import {EditorState, convertFromRaw} from 'draft-js';
 
 class HomePage extends React.Component {
     
@@ -18,7 +18,7 @@ class HomePage extends React.Component {
     componentWillMount() {
         axios.get("https://cryptic-escarpment-29124.herokuapp.com/post/getAll").then(res => {
           this.setState({posts: res.data});
-          this.posts.map(post => post.content = convertFromRaw(post.content) )
+          this.posts.map(post => post.content = EditorState.createWithContent(convertFromRaw(post.content)) )
         });
       }
     render() { 
