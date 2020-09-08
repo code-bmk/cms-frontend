@@ -46,7 +46,7 @@ class HomePage extends React.Component {
                     <div class="card-body">
                     <h5 class="card-title">{post.title}</h5>
                     <p>{post.content}</p>
-                    <Editor editorState={post.content} readOnly/>
+                    {/* <Editor editorState={post.content} readOnly/> */}
                     </div>
                 </div>
                 )}
