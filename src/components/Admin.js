@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import {Editor, EditorState} from 'draft-js';
+import SampleEditor from './SampleEditor';
+import '../css/Styles.css';
 
 class Admin extends React.Component {
   constructor(props){
@@ -11,15 +12,10 @@ class Admin extends React.Component {
       loggedIn = false
     }
     this.state = {
-      editorState: EditorState.createEmpty(),
       loggedIn
     }
   }
-  onChange = (editorState) => {
-    this.setState({
-      editorState
-    })
-  }
+
   render() {
 
     if(this.state.loggedIn === false){
@@ -28,8 +24,11 @@ class Admin extends React.Component {
 
     return(
       <div className="admin">
-       <h1>This is an admin page. only auth people can see this</h1>
-       <Editor editorState={this.state.editorState} onChange={this.onChange}></Editor>
+       <h1>DashBoard Panel</h1>
+     
+       <div className="side-padding-20">
+          <SampleEditor />
+        </div>
        <Link to="/logout">Logout</Link>
       </div>
     )
