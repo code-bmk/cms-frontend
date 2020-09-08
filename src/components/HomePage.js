@@ -33,6 +33,8 @@ class HomePage extends React.Component {
             console.log(htmlContent)
             return post
           })
+
+          this.setState({posts: posts});
       })
     }
     render() { 
@@ -43,7 +45,8 @@ class HomePage extends React.Component {
                 <div class="card">
                     <div class="card-body">
                     <h5 class="card-title">{post.title}</h5>
-                        <Editor editorState={post.content} readOnly={true} /> 
+                    <p>{post.content}</p>
+                       
                     </div>
                 </div>
                 )}
