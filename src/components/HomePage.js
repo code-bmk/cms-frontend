@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {convertFromRaw} from 'draft-js';
 
 class HomePage extends React.Component {
     
@@ -17,12 +18,12 @@ class HomePage extends React.Component {
     componentWillMount() {
         axios.get("https://cryptic-escarpment-29124.herokuapp.com/post/getAll").then(res => {
           this.setState({posts: res.data});
+          this.posts.map(post => post.content = convertFromRaw(post.content) )
         });
       }
     render() { 
         return ( 
         <div>
-            <h1>HomePage</h1>
             <div className="posts">
                 {this.state.posts.map(post =>
                 <div class="card">
