@@ -18,9 +18,14 @@ class HomePage extends React.Component {
     componentWillMount() {
         axios.get("https://cryptic-escarpment-29124.herokuapp.com/post/getAll").then(res => {
           this.setState({posts: res.data});
-          this.posts.map(post => post.content = convertFromRaw(JSON.parse(post.content) ))
-        });
-      }
+
+          this.posts.map(function(post){
+            let content = convertFromRaw(JSON.parse(post.content))
+            post.content = EditorState.createWithContent(content)
+            return post
+          })
+      })
+    }
     render() { 
         return ( 
         <div>
