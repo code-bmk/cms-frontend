@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Editor, EditorState, convertFromRaw} from 'draft-js';
+import { stateToHTML } from "draft-js-export-html";
 
 class HomePage extends React.Component {
     
@@ -20,8 +21,16 @@ class HomePage extends React.Component {
           this.setState({posts: res.data});
 
           this.posts.map(function(post){
+            console.log(post.content)
             let content = convertFromRaw(JSON.parse(post.content))
+            console.log("********")
+            console.log(content)
             post.content = EditorState.createWithContent(content)
+            console.log("********")
+            console.log(post.content)
+            let htmlContent = stateToHTML(post.content)
+            console.log("********")
+            console.log(htmlContent)
             return post
           })
       })
