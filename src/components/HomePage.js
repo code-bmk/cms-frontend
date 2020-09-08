@@ -20,7 +20,7 @@ class HomePage extends React.Component {
         axios.get("https://cryptic-escarpment-29124.herokuapp.com/post/getAll").then(res => {
           this.setState({posts: res.data});
 
-          this.posts.map(function(post){
+          this.state.posts.map(function(post){
             console.log(post.content)
             let content = convertFromRaw(JSON.parse(post.content))
             console.log("********")
@@ -34,7 +34,7 @@ class HomePage extends React.Component {
             return post
           })
 
-          this.setState({posts: posts});
+          this.setState({posts: this.state.posts});
       })
     }
     render() { 
