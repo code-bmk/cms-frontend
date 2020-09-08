@@ -25,7 +25,7 @@ class HomePage extends React.Component {
             let content = convertFromRaw(JSON.parse(post.content))
             console.log("********")
             console.log(content)
-            post.content = EditorState.createWithContent(content.getCurrentContent())
+            post.content = EditorState.createWithContent(content)
             console.log("********")
             console.log(post.content)
             let htmlContent = stateToHTML(post.content)
