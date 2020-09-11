@@ -3,8 +3,9 @@ export const UPDATE_NOTE = "UPDATE_NOTE";
 export const CREATE_NOTE = "CREATE_NOTE";
 
 export function loadNote() {
+    let token = localStorage.getItem("token");
 	return dispatch => {
-		fetch("http://localhost:3000/api/v1/notes")
+		fetch("https://cryptic-escarpment-29124.herokuapp.com/post/getAll")
 			.then(response => response.json())
 			.then(json =>
 				dispatch({
@@ -16,17 +17,22 @@ export function loadNote() {
 }
 
 export function createNote(noteContent) {
-	console.log("in createNote")
+    console.log("in createNote")
+    let token = localStorage.getItem("token");
 	debugger
 	return dispatch => {
-		fetch("http://localhost:3000/api/v1/notes", {
+		fetch("https://cryptic-escarpment-29124.herokuapp.com/post/createPost", {
 			method: "post",
 			headers: {
 				"Content-Type": "application/json",
-				"Accepts": "application/json"
+                "Accepts": "application/json",
+                "Authorization": "Bearer "+token
 			},
 			body: JSON.stringify({
-				content: noteContent
+                title: "",
+                author: "",
+                status: "",
+                content: noteContent
 			})
 		})
 			.then(response => response.json())
