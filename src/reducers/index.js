@@ -3,10 +3,11 @@ import { LOAD_NOTE, UPDATE_NOTE, CREATE_NOTE } from "../actions";
 const note = (state = { displayedNote: null }, action) => {
 	switch (action.type) {
 		case LOAD_NOTE:
-		console.log(action.payload)
+		
 			state = Object.assign({}, state, {
 				displayedNote: action.payload || null
-			});
+            });
+            console.log(state.displayedNote)
 			return state;
 
 		case CREATE_NOTE:
