@@ -61,7 +61,8 @@ componentDidUpdate(prevProps, prevState) {
 
 		let note = {content: convertToRaw(contentState)}
 		note["content"] = JSON.stringify(note.content)
-		this.props.updateNote(this.state.displayedNote, note.content)
+		this.props.createNote(note.content)
+		//this.props.updateNote(this.state.displayedNote, note.content) NOT UPDATING IT BUT CREATING IT FOR NOW //TODO
 	}
 }
 
