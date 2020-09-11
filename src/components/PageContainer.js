@@ -116,7 +116,7 @@ componentDidUpdate(prevProps, prevState) {
 					
 				</div>
 				<div>
-				<Editor
+				<Editor id="ed2"
 						editorState={this.state.editorState}
 						readOnly
 					/>

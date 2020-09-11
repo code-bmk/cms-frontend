@@ -21,16 +21,7 @@ class HomePage extends React.Component {
           this.setState({posts: res.data});
 
           this.state.posts.map(function(post){
-            console.log(post.content)
-            let content = convertFromRaw(JSON.parse(post.content))
-            console.log("********")
-            console.log(content)
-            post.content = EditorState.createWithContent(content)
-            console.log("********")
-            console.log(post.content)
-            let htmlContent = stateToHTML(post.content)
-            console.log("********")
-            console.log(htmlContent)
+            post.content = EditorState.createWithContent(convertFromRaw(JSON.parse(this.props.note.content)))
             return post
           })
 
@@ -46,9 +37,12 @@ class HomePage extends React.Component {
                     <div class="card-body">
                     <h5 class="card-title">{post.title}</h5>
                     <p>{post.content}</p>
-                    {/* <Editor editorState={post.content} readOnly/> */}
+                    <div>
+                    <Editor id={post.id} editorState={post.content} readOnly/>
+                    </div>
                     </div>
                 </div>
+                
                 )}
             </div>
         </div>);
