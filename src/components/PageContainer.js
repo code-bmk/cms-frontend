@@ -14,18 +14,18 @@ class PageContainer extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log(this.props)
 		if (this.props.note === null) {
-			console.log(this.props)
 			this.setState({
 				displayedNote: "new",
 				editorState: EditorState.createEmpty()
 			})
 		} else {
+			console.log(this.props)
 				this.setState({
 					displayedNote: this.props.note.id,
 					editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(this.props.note.content)))
 			})
+			console.log(this.props)
 		}
 }
 
@@ -38,6 +38,7 @@ componentDidUpdate(prevProps, prevState) {
 			displayedNote: this.props.note.id,
 			editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(this.props.note.content)))
 		})
+		console.log(this.props)
 	}
 }
 
@@ -131,6 +132,7 @@ componentDidUpdate(prevProps, prevState) {
 }
 
 function mapStateToProps(state, props) {
+	console.log(this.props)
 	return {
 		note: state.displayedNote
 	};
