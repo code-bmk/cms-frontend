@@ -113,7 +113,13 @@ componentDidUpdate(prevProps, prevState) {
 						handleKeyCommand={this.handleKeyCommand}
 						onChange={this.onChange}
 					/>
-					<p>{this.state.editorState}</p>
+					
+				</div>
+				<div>
+				<Editor
+						editorState={this.state.editorState}
+						readOnly
+					/>
 				</div>
 				<div>
 					<button className="save" onClick={this.submitEditor}>Save</button>
