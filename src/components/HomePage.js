@@ -21,7 +21,7 @@ class HomePage extends React.Component {
           this.setState({posts: res.data});
 
           this.state.posts.map(function(post){
-            post.content = EditorState.createWithContent(convertFromRaw(JSON.parse(this.props.note.content)))
+            post.content = EditorState.createWithContent(convertFromRaw(JSON.parse(post.content)))
             return post
           })
 
