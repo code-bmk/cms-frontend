@@ -14,9 +14,9 @@ class PageContainer extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log(this.props.note)
+		console.log(this.props)
 		if (this.props.note === null) {
-			console.log(this.props.note)
+			console.log(this.props)
 			this.setState({
 				displayedNote: "new",
 				editorState: EditorState.createEmpty()
