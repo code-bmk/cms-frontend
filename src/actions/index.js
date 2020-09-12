@@ -6,9 +6,9 @@ export function loadNote() {
     let token = localStorage.getItem("token");
 	return dispatch => {
 		fetch("https://cryptic-escarpment-29124.herokuapp.com/post/getAll")
-			.then(response => response)
-			.then(json =>
-
+			.then(response => response.json())
+			.then(json => 
+				console.log(json),
 				dispatch({
 					type: LOAD_NOTE,
 					payload: json
