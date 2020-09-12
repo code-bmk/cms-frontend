@@ -10,12 +10,13 @@ const initialState = {
 const note = (state = initialState, action) => {
 	switch (action.type) {
 		case LOAD_NOTE:
-		
 			state = Object.assign({}, state, {
-				displayedNote: action.payload[2] || null
+				fetching: false, 
+                fetched: true,
+                posts: action.payload,
+                displayedNote: action.payload[0]
             });
-            console.log(state.displayedNote)
-			return state;
+            return state;
 
 		case CREATE_NOTE:
 			let newNote = action.newNote;
