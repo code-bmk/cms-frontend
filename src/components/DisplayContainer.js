@@ -54,14 +54,15 @@ class DisplayContainer extends React.Component {
 		<div className="editorContainer">
 		  <div>
 			{this.state.posts.map((post) => (
-			  <Card>
-			  <Card.Header>{post.id}</Card.Header>
-			  <Card.Body>
-				  <Card.Title>{post.title}</Card.Title>
-				  <Card.Text>{post.date}</Card.Text>
-				  <Button variant="primary">Read More...</Button>
-			  </Card.Body>
-			  </Card>
+			//   <Card>
+			//   <Card.Header>{post.id}</Card.Header>
+			//   <Card.Body>
+			// 	  <Card.Title>{post.title}</Card.Title>
+			// 	  <Card.Text>{post.date}</Card.Text>
+			// 	  <Button variant="primary">Read More...</Button>
+			//   </Card.Body>
+			//   </Card>
+			  <Card body>{post.title}</Card>
 			))}
 		  </div>
 		</div>
