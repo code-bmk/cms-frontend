@@ -1,6 +1,13 @@
 import { LOAD_NOTE, UPDATE_NOTE, CREATE_NOTE } from "../actions";
+const initialState = {
+    fetching : false,
+    fetched: false,
+    posts: [],
+    error: null,
+    displayedNote: null
+}
 
-const note = (state = { displayedNote: null }, action) => {
+const note = (state = initialState, action) => {
 	switch (action.type) {
 		case LOAD_NOTE:
 		
