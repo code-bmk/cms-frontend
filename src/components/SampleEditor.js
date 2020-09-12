@@ -127,7 +127,11 @@ class SampleEditor extends Component {
 
 function mapStateToProps(state, props) {
 	return {
-		note: state.displayedNote
+		note: state.displayedNote,
+		fetching : state.fetching,
+		fetched: state.fetched,
+		posts: state.posts,
+		error: state.error,
 	};
 }
 

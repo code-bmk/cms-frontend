@@ -1,4 +1,5 @@
 import { LOAD_NOTE, UPDATE_NOTE, CREATE_NOTE } from "../actions";
+
 const initialState = {
     fetching : false,
     fetched: false,
