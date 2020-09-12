@@ -4,15 +4,15 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as Actions from "../actions";
 
-class Test extends Component {
+class Display extends Component {
 	componentDidMount() {
 		this.props.loadNote();
 	}
 
 	render() {
 		return (
-			<div className="Test">
-				<PageContainer />
+			<div className="Display">
+				<DisplayContainer />
 			</div>
 		);
 	}
@@ -28,4 +28,4 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators(Actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Test);
+export default connect(mapStateToProps, mapDispatchToProps)(Display);
