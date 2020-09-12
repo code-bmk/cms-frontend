@@ -123,10 +123,13 @@ componentDidUpdate(prevProps, prevState) {
 					
 				</div>
 				<div>
-				<Editor id="ed2"
-						editorState={this.state.editorState}
-						readOnly
-					/>
+				{this.state.posts.map(post =>
+				<Editor id={post.id}
+				editorState={post.content}
+				readOnly
+				/>
+                
+                )}
 				</div>
 				<div>
 					<button className="save" onClick={this.submitEditor}>Save</button>
