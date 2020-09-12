@@ -134,7 +134,11 @@ componentDidUpdate(prevProps, prevState) {
 function mapStateToProps(state, props) {
 	console.log(this.props)
 	return {
-		note: state.displayedNote
+		note: state.displayedNote,
+		posts: state.posts,
+		fetching : state.fetching,
+		fetched: state.fetched,
+		error: state.error,
 	};
 }
 
