@@ -5,7 +5,7 @@ const note = (state = { displayedNote: null }, action) => {
 		case LOAD_NOTE:
 		
 			state = Object.assign({}, state, {
-				displayedNote: action.payload || null
+				displayedNote: action.payload[1] || null
             });
             console.log(state.displayedNote)
 			return state;
