@@ -14,29 +14,20 @@ class PageContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayedNote: "new",
-      posts: [],
-      editorState: EditorState.createEmpty(),
+      posts: []
     };
   }
 
   componentDidMount() {
     if (this.props.note === null) {
       this.setState({
-        displayedNote: "new",
-        posts: [],
-        editorState: EditorState.createEmpty(),
+        posts: []
       });
     } else {
       console.log(this.props);
       this.setState({
-        displayedNote: this.props.note.id,
-        posts: this.props.posts,
-        editorState: EditorState.createWithContent(
-          convertFromRaw(JSON.parse(this.props.note.content))
-        ),
+        posts: this.props.posts
       });
-      console.log(this.props);
     }
   }
 
@@ -49,13 +40,9 @@ class PageContainer extends React.Component {
             convertFromRaw(JSON.parse(post.content))
           ))
       );
-      console.log(this.props.note.content);
       this.setState({
-        displayedNote: this.props.note.id,
-        editorState: this.props.note.content,
-        posts: this.props.posts,
+        posts: this.props.posts
       });
-      console.log(this.state.editorState);
     }
   }
 
