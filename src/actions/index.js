@@ -5,7 +5,7 @@ export const CREATE_NOTE = "CREATE_NOTE";
 export function loadNote() {
     let token = localStorage.getItem("token");
 	return dispatch => {
-		fetch("https://cryptic-escarpment-29124.herokuapp.com/post/getAll")
+		fetch("https://infinite-falls-77019.herokuapp.com/post/getAll")
 			.then(response => response.json())
 			.then(json => 
 				dispatch({
@@ -21,7 +21,7 @@ export function createNote(noteContent) {
     let token = localStorage.getItem("token");
 	debugger
 	return dispatch => {
-		fetch("https://cryptic-escarpment-29124.herokuapp.com/post/createPost", {
+		fetch("https://infinite-falls-77019.herokuapp.com/post/createPost", {
 			method: "post",
 			headers: {
 				"Content-Type": "application/json",
@@ -48,7 +48,7 @@ export function createNote(noteContent) {
 export function updateNote(note_id, note_content) {
 	console.log(note_id)
 	return dispatch => {
-		fetch(`http://localhost:3000/api/v1/notes/${note_id}`, {
+		fetch(`https://infinite-falls-77019.herokuapp.com/posts/updatePost/${note_id}`, {
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json",

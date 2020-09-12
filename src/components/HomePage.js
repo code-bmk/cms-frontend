@@ -17,7 +17,7 @@ class HomePage extends React.Component {
     }
 
     componentWillMount() {
-        axios.get("https://cryptic-escarpment-29124.herokuapp.com/post/getAll").then(res => {
+        axios.get("https://infinite-falls-77019.herokuapp.com/post/getAll").then(res => {
           this.setState({posts: res.data});
 
           this.state.posts.map(function(post){

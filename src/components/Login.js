@@ -37,7 +37,7 @@ class Login extends Component {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
   };
-  fetch('https://cryptic-escarpment-29124.herokuapp.com/authenticate', requestOptions)
+  fetch('https://infinite-falls-77019.herokuapp.com/authenticate', requestOptions)
       .then(async response => {
           const data = await response.json();
 
