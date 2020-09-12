@@ -34,11 +34,16 @@ componentDidUpdate(prevProps, prevState) {
 
 	if (prevProps.note == null && !!this.props.note) {
 		//this.props.loadNote
+		this.props.posts.map(
+			post => 
+			post.content = EditorState.createWithContent(convertFromRaw(JSON.parse(post.content)))
+			)
+		console.log(this.props.note.content)
 		this.setState({
 			displayedNote: this.props.note.id,
 			editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(this.props.note.content)))
 		})
-		console.log(this.props)
+		console.log(this.state.editorState)
 	}
 }
 
