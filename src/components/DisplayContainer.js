@@ -15,12 +15,22 @@ class DisplayContainer extends React.Component {
 	}
 
 	componentDidMount() {
-		this.setState({
-				posts: this.props.posts
-		})
-	}
+		if (this.props.posts === null) {
+			this.setState({
+				posts: []
+			})
+		} else {
+				this.setState({
+					posts: this.props.posts
+			})
+		}
+}
 
-	componentDidUpdate(prevProps, prevState) {
+componentDidUpdate(prevProps, prevState) {
+
+
+	if (prevProps.posts == null && !!this.props.posts) {
+		//this.props.loadNote
 		this.props.posts.map(
 			post => 
 			post.content = EditorState.createWithContent(convertFromRaw(JSON.parse(post.content)))
@@ -29,30 +39,32 @@ class DisplayContainer extends React.Component {
 			posts: this.props.posts
 		})
 	}
+}
+
+	
+
 
 	render() {
 		return (
-			<div className="displayContainer">
+			<div className="editorContainer">
+				
 				<div>
 				{this.state.posts.map(post =>
-					<Card>
-					<Card.Header>{post.id}</Card.Header>
-					<Card.Body>
-						<Card.Title>{post.title}</Card.Title>
-						<Card.Text>{post.date}</Card.Text>
-						<Button variant="primary">Read More...</Button>
-					</Card.Body>
-					</Card>
-					 )}
+				<Card>
+				<Card.Header>{post.id}</Card.Header>
+				<Card.Body>
+					<Card.Title>{post.title}</Card.Title>
+					<Card.Text>{post.date}</Card.Text>
+					<Button variant="primary">Read More...</Button>
+				</Card.Body>
+				</Card>
+                
+                )}
 				</div>
-				
 			</div>
-		
 		);
 	}
-
 }
-
 
 function mapStateToProps(state, props) {
 	return {
