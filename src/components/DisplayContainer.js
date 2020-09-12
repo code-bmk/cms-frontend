@@ -1,8 +1,5 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import Box from 'react-bulma-components/full';
-import Media from 'react-bulma-components/full';
-import Content from 'react-bulma-components/full';
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as Actions from "../actions";
@@ -55,23 +52,15 @@ class DisplayContainer extends React.Component {
       <div className="editorContainer">
         <div>
           {this.state.posts.map((post) => (
-            //   <Card>
-            //   <Card.Header>{post.id}</Card.Header>
-            //   <Card.Body>
-            // 	  <Card.Title>{post.title}</Card.Title>
-            // 	  <Card.Text>{post.date}</Card.Text>
-            // 	  <Button variant="primary">Read More...</Button>
-            //   </Card.Body>
-            //   </Card>
-            <Box>
-              <Media.Item>
-                <Content>
-                  <p>
-					{post.title}
-                  </p>
-                </Content>
-              </Media.Item>
-            </Box>
+            <div class="box">
+              <article class="media">
+                <div class="media-content">
+                  <div class="content">
+                    <p>{post.title}</p>
+                  </div>
+                </div>
+              </article>
+            </div>
           ))}
         </div>
       </div>
