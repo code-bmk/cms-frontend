@@ -1,7 +1,8 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import "react-bulma-components/basic/react-bulma-components.min.css";
-import { Box } from "react-bulma-components/dist";
+import Box from 'react-bulma-components/lib/components/box';
+import Media from 'react-bulma-components/lib/components/media';
+import Content from 'react-bulma-components/lib/components/content';
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as Actions from "../actions";
