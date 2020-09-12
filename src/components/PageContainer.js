@@ -41,7 +41,7 @@ componentDidUpdate(prevProps, prevState) {
 		console.log(this.props.note.content)
 		this.setState({
 			displayedNote: this.props.note.id,
-			editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(this.props.note.content)))
+			editorState: this.props.note.content
 		})
 		console.log(this.state.editorState)
 	}
