@@ -13,33 +13,29 @@ class PageContainer extends React.Component {
 	}
 
 	componentDidMount() {
-		if (this.props.note === null) {
+		if (this.props.posts === null) {
 			this.setState({
 				posts: []
 			})
 		} else {
-			console.log(this.props)
 				this.setState({
 					posts: this.props.posts
 			})
-			console.log(this.props)
 		}
 }
 
 componentDidUpdate(prevProps, prevState) {
 
 
-	if (prevProps.note == null && !!this.props.note) {
+	if (prevProps.posts == null && !!this.props.posts) {
 		//this.props.loadNote
 		this.props.posts.map(
 			post => 
 			post.content = EditorState.createWithContent(convertFromRaw(JSON.parse(post.content)))
 			)
-		console.log(this.props.note.content)
 		this.setState({
 			posts: this.props.posts
 		})
-		console.log(this.state.editorState)
 	}
 }
 
@@ -65,13 +61,8 @@ componentDidUpdate(prevProps, prevState) {
 }
 
 function mapStateToProps(state, props) {
-	console.log(this.props)
 	return {
-		note: state.displayedNote,
-		posts: state.posts,
-		fetching : state.fetching,
-		fetched: state.fetched,
-		error: state.error,
+		posts: state.posts
 	};
 }
 
