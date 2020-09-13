@@ -50,20 +50,13 @@ class PostContainer extends React.Component {
     }
   }
 
-  handleClick = postId => {
-    console.log(postId)
-    this.props.navigation.navigate('DetailDisplay', {
-      itemId: 86,
-      otherParam: 'anything you want here',
-    });
-  }
 
   render() {
     return (
       <div className="container is-fluid" style={blogStyle}>
         <div>
           {this.state.posts.map((post) => (
-            <div class="box" key={post.id} onClick={() => this.handleClick(post.id)}>
+            <div class="box">
               <article class="media">
                 <div class="media-content">
                   <div class="content">
