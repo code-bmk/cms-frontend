@@ -51,6 +51,10 @@ class DisplayContainer extends React.Component {
     }
   }
 
+  onPressTitle(event){
+    console.log(event);
+  }
+
   render() {
     return (
       <div className="container is-fluid" style={blogStyle}>
@@ -60,7 +64,7 @@ class DisplayContainer extends React.Component {
               <article class="media">
                 <div class="media-content">
                   <div class="content">
-                    <p>{post.title}</p>
+                    <p data-id={post.id}  onClick={this.onPressTitle}>{post.title}</p>
                   </div>
                 </div>
               </article>
