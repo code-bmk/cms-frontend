@@ -5,7 +5,6 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as Actions from "../actions";
 
-
 class Display extends Component {
 	componentDidMount() {
 		this.props.loadNote();
