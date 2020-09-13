@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PageContainer from "./PageContainer";
+import PageContainer from "./containers/PageContainer";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as Actions from "../actions";

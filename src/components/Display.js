@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import DisplayContainer from "./containers/DisplayContainer";
-import NavContainer from "./NavContainer";
+import NavContainer from "./containers/NavContainer";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as Actions from "../actions";
+
 
 class Display extends Component {
 	componentDidMount() {
