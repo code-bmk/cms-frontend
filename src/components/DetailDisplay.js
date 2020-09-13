@@ -24,7 +24,8 @@ class DetailDisplay extends Component {
 
 function mapStateToProps(state, props) {
 	return {
-		displayedNote: state.displayedNote
+    displayedNote: state.displayedNote,
+    blogPost: state.blogPost
 	};
 }
 

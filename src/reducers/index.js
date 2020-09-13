@@ -5,7 +5,8 @@ const initialState = {
     fetched: false,
     posts: [],
     error: null,
-    displayedNote: null
+	displayedNote: null,
+	blogPost: null
 }
 
 const note = (state = initialState, action) => {
@@ -22,7 +23,8 @@ const note = (state = initialState, action) => {
 			state = Object.assign({}, state, {
 				fetching: false, 
 				fetched: true,
-				displayedNote: action.payload
+				displayedNote: action.payload,
+				blogPost: action.payload
 			});
 			return state;
 

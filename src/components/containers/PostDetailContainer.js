@@ -21,7 +21,8 @@ class PostDetailContainer extends React.Component {
       this.setState({
         displayedNote: this.props.displayedNote,
       });
-      console.log(this.state.displayedNote.content);
+      console.log(this.state);
+      console.log(this.props)
     }
   }
   componentDidUpdate(prevProps, prevState) {
@@ -35,6 +36,8 @@ class PostDetailContainer extends React.Component {
         this.setState({
             displayedNote: this.props.displayedNote
         });
+        console.log(this.state);
+      console.log(this.props)
       }
     
   }
@@ -43,7 +46,7 @@ class PostDetailContainer extends React.Component {
     return (
       <div className="container is-fluid">
         <h1 class="title">{this.state.displayedNote.title}</h1>
-        <Editor id={this.state.displayedNote.id} editorState={this.state.displayedNote.content} readOnly/>
+        {/* <Editor id={this.state.displayedNote.id} editorState={this.state.displayedNote.content} readOnly/> */}
       </div>
     );
   }
@@ -54,6 +57,7 @@ function mapStateToProps(state, props) {
     displayedNote: state.displayedNote,
     fetching: state.fetching,
     fetched: state.fetched,
+    blogPost: state.blogPost
   };
 }
 
