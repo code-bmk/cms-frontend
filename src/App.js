@@ -16,13 +16,13 @@ class App extends Component {
       <BrowserRouter>
       <Switch>
         <Route exact path="/" component={HomePage}></Route>
-        <Route exact path="/Login" component={Login}></Route>
-        <Route exact path="/Admin" component={Admin}></Route>
-        <Route exact path="/Test" component={Test}></Route>
-        <Route exact path="/Display" component={Display}></Route>
-        <Route exact path="/DetailDisplay/:id" component={DetailDisplay}></Route>
-        <Route exact path="/Edit" component={Edit}></Route>
-        <Route exact path="/Logout" component={Logout}></Route>
+        <Route exact path="/login" component={Login}></Route>
+        <Route exact path="/admin" component={Admin}></Route>
+        <Route exact path="/test" component={Test}></Route>
+        <Route exact path="/display" component={Display}></Route>
+        <Route path="/detaildisplay/:id" component={DetailDisplay}></Route>
+        <Route exact path="/edit" component={Edit}></Route>
+        <Route exact path="/logout" component={Logout}></Route>
       </Switch>
       </BrowserRouter>
     )

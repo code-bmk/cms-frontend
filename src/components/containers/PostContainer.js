@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import {Link, Redirect} from 'react-router-dom';
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as Actions from "../../actions";
@@ -67,7 +67,10 @@ class PostContainer extends React.Component {
               <article class="media">
                 <div class="media-content">
                   <div class="content">
-                    <p>{post.title}</p>
+                   
+                    <Link to={`/detaildisplay/${post.id}`}>
+                      <p>{post.title}</p>
+                    </Link>
                   </div>
                 </div>
               </article>
