@@ -21,6 +21,8 @@ class PostDetailContainer extends React.Component {
       this.setState({
         displayedNote: this.props.displayedNote,
       });
+      console.log(this.state.displayedNote.content);
+      console.log(EditorState.createWithContent(convertFromRaw(JSON.parse(this.state.displayedNote.content))))
     }
   }
   componentDidUpdate(prevProps, prevState) {
