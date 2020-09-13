@@ -7,9 +7,6 @@ import { Editor, EditorState, convertFromRaw } from "draft-js";
 class PostDetailContainer extends React.Component {
   constructor(props) {
     super(props);
-    const {
-        match: { params },
-      } = this.props;
     this.state = {
       displayedNote: { content: "" },
     };
