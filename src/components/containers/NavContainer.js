@@ -4,7 +4,7 @@ class NavContainer extends Component {
   state = {};
   render() {
     return (
-      <div>
+      <div> 
         <nav class="navbar" role="navigation" aria-label="main navigation">
           <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
