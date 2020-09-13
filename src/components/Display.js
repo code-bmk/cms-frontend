@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DisplayContainer from "./DisplayContainer";
+import DisplayContainer from "./containers/DisplayContainer";
 import NavContainer from "./NavContainer";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -12,7 +12,7 @@ class Display extends Component {
 
 	render() {
 		return (
-			<div className="Display">
+			<div className="container is-fluid">
 				<NavContainer />
 				<DisplayContainer />
 			</div>
