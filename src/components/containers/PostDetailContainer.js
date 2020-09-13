@@ -39,7 +39,7 @@ class PostDetailContainer extends React.Component {
     return (
       <div className="container is-fluid">
         <h1 class="title">{this.state.displayedNote.title}</h1>
-        <Editor id={this.state.displayedNote.id} editorState={this.state.displayedNote.content} readOnly/>
+        {/* <Editor id={this.state.displayedNote.id} editorState={this.state.displayedNote.content} readOnly/> */}
       </div>
     );
   }
