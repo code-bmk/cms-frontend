@@ -9,6 +9,7 @@ class DetailDisplay extends React.Component {
     return(
       <div className="detailDisplay">
         <h1>Detail Display</h1>
+        <p>{this.props.params.id}</p>
       </div>
     )
   }
