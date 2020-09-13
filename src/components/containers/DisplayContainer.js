@@ -21,6 +21,7 @@ class DisplayContainer extends React.Component {
     this.state = {
       posts: [],
     };
+    this.onPressTitle = this.onPressTitle.bind(this);
   }
 
   componentDidMount() {
