@@ -11,9 +11,9 @@ class Test extends Component {
 
 	render() {
 		return (
-			<div className="Test">
+			<div class="container is-fluid">
 				<PageContainer />
-			</div>
+		  	</div>
 		);
 	}
 }
