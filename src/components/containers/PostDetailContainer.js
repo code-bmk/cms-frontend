@@ -12,14 +12,14 @@ class PostDetailContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        displayedNote: ''
+        displayedNote: {content:''}
     };
   }
 
   componentDidMount() {
     if (this.props.displayedNote === null) {
       this.setState({
-        displayedNote: ''
+        displayedNote: {content:''}
       });
     } else {
       console.log(this.props);
