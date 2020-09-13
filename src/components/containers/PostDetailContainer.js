@@ -29,9 +29,12 @@ class PostDetailContainer extends React.Component {
     //     convertFromRaw(JSON.parse(this.props.displayedNote.content))
     //    );
 
-      this.setState({
-        displayedNote: this.props.displayedNote,
-      });
+      if (prevProps.displayedNote == null && !!this.props.displayedNote) {
+      
+        this.setState({
+            displayedNote: this.props.displayedNote
+        });
+      }
     
   }
 
