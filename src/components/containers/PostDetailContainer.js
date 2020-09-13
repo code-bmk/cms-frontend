@@ -25,9 +25,9 @@ class PostDetailContainer extends React.Component {
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.displayedNote == null && !!this.props.displayedNote) {
-      this.props.displayedNote.content = EditorState.createWithContent(
-        convertFromRaw(JSON.parse(this.props.displayedNote.content))
-      );
+    //   this.props.displayedNote.content = EditorState.createWithContent(
+    //     convertFromRaw(JSON.parse(this.props.displayedNote.content))
+    //   );
 
       this.setState({
         displayedNote: this.props.displayedNote,
@@ -39,7 +39,7 @@ class PostDetailContainer extends React.Component {
     return (
       <div className="container is-fluid">
         <h1 class="title">{this.state.displayedNote.title}</h1>
-        <Editor id={this.state.displayedNote.id} editorState={this.state.displayedNote.content} readOnly/>
+        {/* <Editor id={this.state.displayedNote.id} editorState={this.state.displayedNote.content} readOnly/> */}
       </div>
     );
   }
