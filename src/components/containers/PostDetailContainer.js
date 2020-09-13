@@ -24,15 +24,15 @@ class PostDetailContainer extends React.Component {
     }
   }
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.displayedNote == null && !!this.props.displayedNote) {
-    //   this.props.displayedNote.content = EditorState.createWithContent(
-    //     convertFromRaw(JSON.parse(this.props.displayedNote.content))
-    //   );
+    
+      this.props.displayedNote.content = EditorState.createWithContent(
+        convertFromRaw(JSON.parse(this.props.displayedNote.content))
+       );
 
       this.setState({
         displayedNote: this.props.displayedNote,
       });
-    }
+    
   }
 
   render() {
