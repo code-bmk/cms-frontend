@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Editor, EditorState, RichUtils, convertToRaw, convertFromRaw } from "draft-js";
 
 class DetailDisplay extends React.Component {
   constructor(props) {
@@ -27,18 +28,18 @@ class DetailDisplay extends React.Component {
       },
     };
     fetch(
-      "https://infinite-falls-77019.herokuapp.com/post/" + params.id,
+      "https://infinite-falls-77019.herokuapp.com/post/getOne/" + params.id,
       requestOptions
     )
       .then(async (response) => {
         const data = await response.json();
 
         this.setState({
-          postContent: data.content,
+          postContent: EditorState.createWithContent(convertFromRaw(JSON.parse(data.content))),
           postTitle: data.title,
           postDate: data.date,
           postAuthor: data.author,
-          postId:  params.id
+          postId:  data.id
         });
       })
       .catch((error) => {
@@ -47,10 +48,9 @@ class DetailDisplay extends React.Component {
   }
   render() {
     return (
-      <div className="detailDisplay">
-        <h1>Detail Display</h1>
-        <p>{this.state.postId}</p>
-        <p>{this.state.postContent}</p>
+      <div className="container is-fluid">
+        <h1 class="title">{this.state.postTitle}</h1>
+        <Editor editorState={this.state.postContent}></Editor>
       </div>
     );
   }
