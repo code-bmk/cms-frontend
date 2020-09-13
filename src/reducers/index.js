@@ -1,4 +1,4 @@
-import { LOAD_NOTE, UPDATE_NOTE, CREATE_NOTE } from "../actions";
+import { LOAD_NOTE, LOAD_ONE_NOTE, UPDATE_NOTE, CREATE_NOTE } from "../actions";
 
 const initialState = {
     fetching : false,
@@ -17,7 +17,14 @@ const note = (state = initialState, action) => {
                 posts: action.payload,
                 displayedNote: action.payload[0]
             });
-            return state;
+			return state;
+		case LOAD_ONE_NOTE:
+			state = Object.assign({}, state, {
+				fetching: false, 
+				fetched: true,
+				displayedNote: action.payload
+			});
+			return state;
 
 		case CREATE_NOTE:
 			let newNote = action.newNote;

@@ -1,59 +1,35 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Editor, EditorState, RichUtils, convertToRaw, convertFromRaw } from "draft-js";
+import React, { Component } from "react";
+import PageContainer from "./containers/PageContainer";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as Actions from "../actions";
+import PostDetailContainer from "./containers/PostDetailContainer";
 
-class DetailDisplay extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      postId: "" ,
-      postContent:"",
-      postTitle: "",
-      postDate: "",
-      postAuthor: ""};
-  }
-
-  componentWillMount() {
+class DetailDisplay extends Component {
+	componentDidMount() {
     const {
       match: { params },
     } = this.props;
+		this.props.loadOneNote(params.id);
+	}
 
-    let token = localStorage.getItem("token");
-
-    const requestOptions = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + token,
-      },
-    };
-    fetch(
-      "https://infinite-falls-77019.herokuapp.com/post/getOne/" + params.id,
-      requestOptions
-    )
-      .then(async (response) => {
-        const data = await response.json();
-
-        this.setState({
-          postContent: EditorState.createWithContent(convertFromRaw(JSON.parse(data.content))),
-          postTitle: data.title,
-          postDate: data.date,
-          postAuthor: data.author,
-          postId:  data.id
-        });
-      })
-      .catch((error) => {
-        console.error("There was an error!", error);
-      });
-  }
-  render() {
-    return (
-      <div className="container is-fluid">
-        <h1 class="title">{this.state.postTitle}</h1>
-        <Editor editorState={this.state.postContent}></Editor>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div class="container is-fluid">
+        <PostDetailContainer />
+		  	</div>
+		);
+	}
 }
 
-export default DetailDisplay;
+function mapStateToProps(state, props) {
+	return {
+		displayedNote: state.displayedNote
+	};
+}
+
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators(Actions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DetailDisplay);
