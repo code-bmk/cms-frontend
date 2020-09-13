@@ -21,7 +21,6 @@ class DisplayContainer extends React.Component {
     this.state = {
       posts: [],
     };
-    this.onPressTitle = this.onPressTitle.bind(this);
   }
 
   componentDidMount() {
@@ -52,8 +51,8 @@ class DisplayContainer extends React.Component {
     }
   }
 
-  onPressTitle(event){
-    console.log(event);
+  handleClick = event => {
+    console.log(event.currentTarget)
   }
 
   render() {
@@ -61,7 +60,7 @@ class DisplayContainer extends React.Component {
       <div className="container is-fluid" style={blogStyle}>
         <div>
           {this.state.posts.map((post) => (
-            <div class="box" data-id={post.id}  onClick={this.onPressTitle}>
+            <div class="box" key={post.id} onClick={() => this.handleClick(post.id)}>
               <article class="media">
                 <div class="media-content">
                   <div class="content">
