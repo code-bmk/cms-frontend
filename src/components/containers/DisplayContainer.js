@@ -61,11 +61,11 @@ class DisplayContainer extends React.Component {
       <div className="container is-fluid" style={blogStyle}>
         <div>
           {this.state.posts.map((post) => (
-            <div class="box">
+            <div class="box" data-id={post.id}  onClick={this.onPressTitle}>
               <article class="media">
                 <div class="media-content">
                   <div class="content">
-                    <p data-id={post.id}  onClick={this.onPressTitle}>{post.title}</p>
+                    <p>{post.title}</p>
                   </div>
                 </div>
               </article>
