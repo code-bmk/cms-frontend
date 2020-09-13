@@ -7,6 +7,9 @@ import { Editor, EditorState, convertFromRaw } from "draft-js";
 class PostDetailContainer extends React.Component {
   constructor(props) {
     super(props);
+    const {
+        match: { params },
+      } = this.props;
     this.state = {
       displayedNote: { content: "" },
     };
@@ -39,7 +42,7 @@ class PostDetailContainer extends React.Component {
     return (
       <div className="container is-fluid">
         <h1 class="title">{this.state.displayedNote.title}</h1>
-        {/* <Editor id={this.state.displayedNote.id} editorState={this.state.displayedNote.content} readOnly/> */}
+        <Editor id={this.state.displayedNote.id} editorState={this.state.displayedNote.content} readOnly/>
       </div>
     );
   }
