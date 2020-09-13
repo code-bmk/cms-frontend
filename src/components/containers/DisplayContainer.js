@@ -49,7 +49,7 @@ class DisplayContainer extends React.Component {
 
   render() {
     return (
-      <div className="editorContainer">
+      <div className="container is-fluid">
         <div>
           {this.state.posts.map((post) => (
             <div class="box">
