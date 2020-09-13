@@ -12,13 +12,10 @@ class DetailDisplay extends React.Component {
       postAuthor: ""};
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const {
       match: { params },
     } = this.props;
-
-    this.setState({ 
-      postId: params.id });
 
     let token = localStorage.getItem("token");
 
@@ -29,7 +26,6 @@ class DetailDisplay extends React.Component {
         Authorization: "Bearer " + token,
       },
     };
-    localStorage.getItem("token");
     fetch(
       "https://infinite-falls-77019.herokuapp.com/post/" + params.id,
       requestOptions
@@ -42,6 +38,7 @@ class DetailDisplay extends React.Component {
           postTitle: data.title,
           postDate: data.date,
           postAuthor: data.author,
+          postId:  params.id
         });
       })
       .catch((error) => {
