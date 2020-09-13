@@ -1,24 +1,26 @@
-import React from 'react';
-import { StackNavigator } from 'react-navigation';
-import Display from './Display';
-import DetailDisplay from './DetailDisplay';
+import * as React from 'react';
+import { View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-const RootStack = StackNavigator(
-	{
-	  Display: {
-		screen: Display,
-	  },
-	  DetailDisplay: {
-		screen: DetailDisplay,
-	  },
-	},
-	{
-	  initialRouteName: 'Display',
-	}
+function HomeScreen() {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+    </View>
   );
-  
-export default class RootStackPage extends React.Component {
-	render() {
-	  return <RootStack />;
-	}
 }
+
+const Stack = createStackNavigator();
+
+function RootStackPage() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default RootStackPage;
