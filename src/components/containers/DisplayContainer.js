@@ -11,6 +11,10 @@ import {
   convertFromRaw,
 } from "draft-js";
 
+const blogStyle = {
+  width: "60%"
+};
+
 class DisplayContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -49,7 +53,7 @@ class DisplayContainer extends React.Component {
 
   render() {
     return (
-      <div className="container is-fluid">
+      <div className="container is-fluid" style={blogStyle}>
         <div>
           {this.state.posts.map((post) => (
             <div class="box">
