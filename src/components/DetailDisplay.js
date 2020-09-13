@@ -29,7 +29,7 @@ class DetailDisplay extends React.Component {
         Authorization: "Bearer " + token,
       },
     };
-    localStorage.getItem("token", data.token);
+    localStorage.getItem("token");
     fetch(
       "https://infinite-falls-77019.herokuapp.com/post/" + params.id,
       requestOptions
