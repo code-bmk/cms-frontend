@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DisplayContainer from "./containers/DisplayContainer";
+import PostContainer from "./containers/PostContainer";
 import NavContainer from "./containers/NavContainer";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -14,7 +14,7 @@ class Display extends Component {
 		return (
 			<div className="container is-fluid">
 				<NavContainer />
-				<DisplayContainer />
+				<PostContainer />
 			</div>
 		);
 	}

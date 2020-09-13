@@ -4,6 +4,7 @@ import Login from './components/Login';
 import Admin from './components/Admin';
 import Test from './components/Test';
 import Display from './components/Display';
+import RootStackPage from './components/RootStackPage';
 import Edit from './components/Edit';
 import Logout from './components/Logout';
 import HomePage from './components/HomePage';
@@ -19,6 +20,7 @@ class App extends Component {
         <Route exact path="/Admin" component={Admin}></Route>
         <Route exact path="/Test" component={Test}></Route>
         <Route exact path="/Display" component={Display}></Route>
+        <Route exact path="/RootStackPage" component={RootStackPage}></Route>
         <Route exact path="/Edit" component={Edit}></Route>
         <Route exact path="/Logout" component={Logout}></Route>
       </Switch>

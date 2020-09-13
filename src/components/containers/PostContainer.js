@@ -15,7 +15,7 @@ const blogStyle = {
   width: "60%"
 };
 
-class DisplayContainer extends React.Component {
+class PostContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,7 +38,6 @@ class DisplayContainer extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.note == null && !!this.props.note) {
-      //this.props.loadNote
       this.props.posts.map(
         (post) =>
           (post.content = EditorState.createWithContent(
@@ -51,8 +50,12 @@ class DisplayContainer extends React.Component {
     }
   }
 
-  handleClick = event => {
-    console.log(event.currentTarget)
+  handleClick = postId => {
+    console.log(postId)
+    this.props.navigation.navigate('DetailDisplay', {
+      itemId: 86,
+      otherParam: 'anything you want here',
+    });
   }
 
   render() {
@@ -91,4 +94,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DisplayContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(PostContainer);
