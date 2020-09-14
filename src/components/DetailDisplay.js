@@ -32,13 +32,13 @@ class DetailDisplay extends Component {
   }
   componentDidUpdate(prevProps, prevState) {
 
-      if (prevProps.displayedNote !== this.props.displayedNote) {
+    this.props.loadOneNote(params.id);
       
         this.setState({
             displayedNote: this.props.displayedNote
         });
         
-      }
+      
     
   }
   
