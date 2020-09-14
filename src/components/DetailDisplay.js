@@ -8,7 +8,7 @@ class DetailDisplay extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayedNote: "",
+      displayedNote: {content:EditorState.createEmpty()},
       blogPost: "",
     };
   }
@@ -20,7 +20,7 @@ class DetailDisplay extends Component {
 
     if (this.props.displayedNote === null) {
       this.setState({
-        displayedNote: "",
+        displayedNote: {content:EditorState.createEmpty()},
         blogPost: "",
       });
     } else {
@@ -36,10 +36,11 @@ class DetailDisplay extends Component {
       match: { params },
     } = this.props;
     this.props.loadOneNote(params.id);
-
-    this.setState({
-      displayedNote: this.props.displayedNote,
-    });
+    let displayedNote = { ...this.state.displayedNote };
+    displayedNote.content = EditorState.createWithContent(
+      convertFromRaw(JSON.parse(this.props.displayedNote.content))
+    );
+    this.setState({ displayedNote });
   }
 
   render() {
