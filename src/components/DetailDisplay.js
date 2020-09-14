@@ -32,15 +32,15 @@ class DetailDisplay extends Component {
     }
   }
   componentDidUpdate(prevProps, prevState) {
-    const {
-      match: { params },
-    } = this.props;
-    this.props.loadOneNote(params.id);
-    let displayedNote = { ...this.state.displayedNote };
-    displayedNote.content = EditorState.createWithContent(
-      convertFromRaw(JSON.parse(this.props.displayedNote.content))
-    );
-    this.setState({ displayedNote });
+    // const {
+    //   match: { params },
+    // } = this.props;
+    // this.props.loadOneNote(params.id);
+    // let displayedNote = { ...this.state.displayedNote };
+    // displayedNote.content = EditorState.createWithContent(
+    //   convertFromRaw(JSON.parse(this.props.displayedNote.content))
+    // );
+    // this.setState({ displayedNote });
   }
 
   render() {
