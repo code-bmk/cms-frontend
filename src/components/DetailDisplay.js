@@ -4,6 +4,10 @@ import { connect } from "react-redux";
 import * as Actions from "../actions";
 import { Editor, EditorState, convertFromRaw } from "draft-js";
 
+const blogStyle = {
+  width: "60%"
+};
+
 class DetailDisplay extends Component {
   constructor(props) {
     super(props);
@@ -36,7 +40,7 @@ class DetailDisplay extends Component {
       match: { params },
     } = this.props;
 
-    if (prevProps.displayedNote == null && !!this.props.displayedNote) {
+    if (params.id!== prevProps.displayedNote.id) {
       this.props.loadOneNote(params.id);
       let displayedNote = { ...this.state.displayedNote };
       displayedNote.content = EditorState.createWithContent(
@@ -48,8 +52,8 @@ class DetailDisplay extends Component {
 
   render() {
     return (
-      <div class="container is-fluid">
-        <h1 class="title">{this.state.displayedNote.title}</h1>
+      <div class="container is-fluid" style={blogStyle}>
+        <h1 class="title is-1">{this.state.displayedNote.title}</h1>
         <Editor
           id={this.state.displayedNote.id}
           editorState={this.state.displayedNote.content}
