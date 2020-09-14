@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import PageContainer from "./containers/PageContainer";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as Actions from "../actions";
-import PostDetailContainer from "./containers/PostDetailContainer";
+import { Editor, EditorState, convertFromRaw } from "draft-js";
 
 class DetailDisplay extends Component {
   constructor(props) {
