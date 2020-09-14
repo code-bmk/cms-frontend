@@ -6,8 +6,8 @@ import * as Actions from "../actions";
 import PostDetailContainer from "./containers/PostDetailContainer";
 
 class DetailDisplay extends Component {
-	constructor() {
-   
+	constructor(props) {
+   super(props);
     this.state = {
       displayedNote: '',
       blogPost: ''
@@ -18,7 +18,7 @@ class DetailDisplay extends Component {
       match: { params },
     } = this.props;
     this.props.loadOneNote(params.id);
-    
+
     if (this.props.displayedNote === null) {
       this.setState({
         displayedNote: '',
