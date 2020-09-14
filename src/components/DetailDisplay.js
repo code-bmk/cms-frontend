@@ -6,17 +6,46 @@ import * as Actions from "../actions";
 import PostDetailContainer from "./containers/PostDetailContainer";
 
 class DetailDisplay extends Component {
-	componentDidMount() {
+	constructor() {
     const {
       match: { params },
     } = this.props;
-		this.props.loadOneNote(params.id);
-	}
+    this.props.loadOneNote(params.id);
+    this.state = {
+      displayedNote: '',
+      blogPost: ''
+    };
+  }
+  componentDidMount() {
+    if (this.props.displayedNote === null) {
+      this.setState({
+        displayedNote: '',
+        blogPost: ''
+      });
+    } else {
+      this.setState({
+        displayedNote: this.props.displayedNote,
+      });
+    }
+  }
+  componentDidUpdate(prevProps, prevState) {
+
+      if (prevProps.displayedNote !== this.props.displayedNote) {
+      
+        this.setState({
+            displayedNote: this.props.displayedNote
+        });
+        
+      }
+    
+  }
+  
 
 	render() {
 		return (
 			<div class="container is-fluid">
-        <PostDetailContainer />
+        <h1 class="title">{this.state.displayedNote.title}</h1>
+        <p>{this.state.displayedNote.content}</p>
 		  	</div>
 		);
 	}
