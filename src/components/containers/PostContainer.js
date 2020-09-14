@@ -38,12 +38,12 @@ class PostContainer extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.note == null && !!this.props.note) {
-      this.props.posts.map(
-        (post) =>
-          (post.content = EditorState.createWithContent(
-            convertFromRaw(JSON.parse(post.content))
-          ))
-      );
+      // this.props.posts.map(
+      //   (post) =>
+      //     (post.content = EditorState.createWithContent(
+      //       convertFromRaw(JSON.parse(post.content))
+      //     ))
+      // );
       this.setState({
         posts: this.props.posts,
       });

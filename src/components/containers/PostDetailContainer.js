@@ -9,6 +9,7 @@ class PostDetailContainer extends React.Component {
     super(props);
     this.state = {
       displayedNote: { content: "" },
+      blogPost: ''
     };
   }
 
@@ -16,6 +17,7 @@ class PostDetailContainer extends React.Component {
     if (this.props.displayedNote === null) {
       this.setState({
         displayedNote: { content: "" },
+        blogPost: ''
       });
     } else {
       this.setState({
