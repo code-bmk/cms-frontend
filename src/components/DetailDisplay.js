@@ -6,11 +6,11 @@ import * as Actions from "../actions";
 import PostDetailContainer from "./containers/PostDetailContainer";
 
 class DetailDisplay extends Component {
-	constructor(props) {
-   super(props);
+  constructor(props) {
+    super(props);
     this.state = {
-      displayedNote: '',
-      blogPost: ''
+      displayedNote: "",
+      blogPost: "",
     };
   }
   componentDidMount() {
@@ -21,47 +21,47 @@ class DetailDisplay extends Component {
 
     if (this.props.displayedNote === null) {
       this.setState({
-        displayedNote: '',
-        blogPost: ''
+        displayedNote: "",
+        blogPost: "",
       });
     } else {
-      this.setState({
-        displayedNote: this.props.displayedNote,
-      });
+      let displayedNote = { ...this.state.displayedNote };
+      displayedNote.content = EditorState.createWithContent(
+        convertFromRaw(JSON.parse(this.props.displayedNote.content))
+      );
+      this.setState({ displayedNote });
     }
   }
   componentDidUpdate(prevProps, prevState) {
-
+    const {
+      match: { params },
+    } = this.props;
     this.props.loadOneNote(params.id);
-      
-        this.setState({
-            displayedNote: this.props.displayedNote
-        });
-        
-      
-    
-  }
-  
 
-	render() {
-		return (
-			<div class="container is-fluid">
+    this.setState({
+      displayedNote: this.props.displayedNote,
+    });
+  }
+
+  render() {
+    return (
+      <div class="container is-fluid">
         <h1 class="title">{this.state.displayedNote.title}</h1>
-        <p>{this.state.displayedNote.content}</p>
-		  	</div>
-		);
-	}
+        <Editor id={this.state.displayedNote.id} editorState={this.state.displayedNote.content} readOnly/>
+      </div>
+    );
+  }
 }
 
 function mapStateToProps(state, props) {
-	return {
+  return {
     displayedNote: state.displayedNote,
-    blogPost: state.blogPost
-	};
+    blogPost: state.blogPost,
+  };
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators(Actions, dispatch);
+  return bindActionCreators(Actions, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DetailDisplay);
