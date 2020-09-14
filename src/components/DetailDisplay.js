@@ -7,16 +7,18 @@ import PostDetailContainer from "./containers/PostDetailContainer";
 
 class DetailDisplay extends Component {
 	constructor() {
-    const {
-      match: { params },
-    } = this.props;
-    this.props.loadOneNote(params.id);
+   
     this.state = {
       displayedNote: '',
       blogPost: ''
     };
   }
   componentDidMount() {
+    const {
+      match: { params },
+    } = this.props;
+    this.props.loadOneNote(params.id);
+    
     if (this.props.displayedNote === null) {
       this.setState({
         displayedNote: '',
