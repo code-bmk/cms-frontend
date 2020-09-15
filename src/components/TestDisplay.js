@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Breakpoint } from 'react-socks';
 import { withLastLocation } from 'react-router-last-location';
-import { getMovieDetailsById, getMovieReviews } from '../services/herokuApi';
+import { getPostDetailsById } from '../services/herokuApi';
 
 class TestDisplay extends Component {
   state = {
