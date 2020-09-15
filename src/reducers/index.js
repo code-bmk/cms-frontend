@@ -24,7 +24,7 @@ const note = (state = initialState, action) => {
 				fetching: false, 
 				fetched: true,
 				displayedNote: action.payload,
-				blogPost: action.payload
+				blogPost: action.payload.content
 			});
 			return state;
 
