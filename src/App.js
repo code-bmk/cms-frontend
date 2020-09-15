@@ -2,12 +2,9 @@ import React, {Component} from 'react';
 import { BrowserRouter, Switch, Route} from 'react-router-dom';
 import Login from './components/Login';
 import Admin from './components/Admin';
-import Test from './components/Test';
 import Display from './components/Display';
-import DetailDisplay from './components/DetailDisplay';
 import Edit from './components/Edit';
 import Logout from './components/Logout';
-import HomePage from './components/HomePage';
 import TestDisplay from './components/TestDisplay';
 
 class App extends Component {
