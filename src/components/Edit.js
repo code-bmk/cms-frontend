@@ -5,10 +5,6 @@ import { connect } from "react-redux";
 import * as Actions from "../actions";
 
 class Edit extends Component {
-	componentDidMount() {
-		this.props.loadNote();
-	}
-
 	render() {
 		return (
 			<div className="Edit">
