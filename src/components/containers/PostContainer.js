@@ -1,9 +1,9 @@
 import React from "react";
-import {Link, Redirect} from 'react-router-dom';
+import { Link, Redirect } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as Actions from "../../actions";
-import Timestamp from 'react-timestamp';
+import Timestamp from "react-timestamp";
 
 import {
   Editor,
@@ -14,7 +14,7 @@ import {
 } from "draft-js";
 
 const blogStyle = {
-  width: "60%"
+  width: "60%",
 };
 
 class PostContainer extends React.Component {
@@ -52,7 +52,6 @@ class PostContainer extends React.Component {
     }
   }
 
-
   render() {
     return (
       <div className="container is-fluid" style={blogStyle}>
@@ -62,16 +61,13 @@ class PostContainer extends React.Component {
               <article class="media">
                 <div class="media-content">
                   <div class="content">
-                   
                     <Link to={`/posts/${post.id}`}>
                       <p>{post.title}</p>
                     </Link>
                   </div>
                   <nav class="level is-mobile">
-                  <div class="level-right">
-                  <Timestamp date={post.date} ></Timestamp>
-                  </div>
-                </nav>
+                    <Timestamp class="level-right" date={post.date}></Timestamp>
+                  </nav>
                 </div>
               </article>
             </div>
