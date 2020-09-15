@@ -3,6 +3,8 @@ import {Link, Redirect} from 'react-router-dom';
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as Actions from "../../actions";
+import Timestamp from 'react-timestamp';
+
 import {
   Editor,
   EditorState,
@@ -67,7 +69,7 @@ class PostContainer extends React.Component {
                   </div>
                   <nav class="level is-mobile">
                   <div class="level-right">
-                    <p>{post.date}</p>
+                  <Timestamp date={post.date} ></Timestamp>
                   </div>
                 </nav>
                 </div>
