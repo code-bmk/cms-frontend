@@ -61,7 +61,7 @@ class PostContainer extends React.Component {
                 <div class="media-content">
                   <div class="content">
                    
-                    <Link to={`/detaildisplay/${post.id}`}>
+                    <Link to={`/testdisplay/${post.id}`}>
                       <p>{post.title}</p>
                     </Link>
                   </div>
