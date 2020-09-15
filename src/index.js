@@ -8,7 +8,7 @@ import rootReducer from "./redux/reducers";
 import * as Actions from "./redux/actions";
 
 function configureStore() {
- return createStore(rootReducer, applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+ return createStore(rootReducer, applyMiddleware(thunk));
 }
 const store = configureStore();
 store.subscribe(() => {
