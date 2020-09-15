@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withLastLocation } from "react-router-last-location";
 import { getPostDetailsById } from "../services/herokuApi";
 import { Editor, EditorState, convertFromRaw } from "draft-js";
+import Timestamp from "react-timestamp";
 
 const blogStyle = {
   width: "60%",
@@ -52,25 +53,20 @@ class TestDisplay extends Component {
             <div class="hero-body">
               <div class="container">
                 <p class="title">{postInfo.title}</p>
-                <p class="subtitle" >
-                  Published at <Timestamp date={postInfo.date}></Timestamp></p>
+                <p class="subtitle">
+                  Published at <Timestamp date={postInfo.date}></Timestamp>
+                </p>
               </div>
             </div>
           </section>
-          <div class="container is-fluid" >
+          <div class="container is-fluid">
             <Editor id={postInfo.id} editorState={postInfo.content} readOnly />
           </div>
-
-         
         </div>
       );
     }
 
-    return (
-      <div >
-        {movieDetails}
-      </div>
-    );
+    return <div>{movieDetails}</div>;
   }
 }
 
