@@ -19,7 +19,7 @@ class TestDisplay extends Component {
       try {
         const postInfo = await getPostDetailsById(this.props.match.params.id);
         postInfo.content = EditorState.createWithContent(
-            convertFromRaw(JSON.parse(this.props.displayedNote.content))
+            convertFromRaw(JSON.parse(postInfo.content))
           );
         this.setState({
           loading: false,
