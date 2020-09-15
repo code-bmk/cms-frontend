@@ -40,7 +40,7 @@ class DetailDisplay extends Component {
       match: { params },
     } = this.props;
 
-    if (params.id!== prevProps.displayedNote.id) {
+    if (params.id!== this.state.displayedNote.id) {
       this.props.loadOneNote(params.id);
       let displayedNote = { ...this.state.displayedNote };
       displayedNote.content = EditorState.createWithContent(
