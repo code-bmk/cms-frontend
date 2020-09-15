@@ -52,18 +52,25 @@ class TestDisplay extends Component {
             <div class="hero-body">
               <div class="container">
                 <p class="title">{postInfo.title}</p>
-                <p class="subtitle">{postInfo.date}</p>
+                <p class="subtitle" >
+                  Published at <Timestamp date={postInfo.date}></Timestamp></p>
               </div>
             </div>
           </section>
-          <div class="container is-fluid" style={blogStyle}>
+          <div class="container is-fluid" >
             <Editor id={postInfo.id} editorState={postInfo.content} readOnly />
           </div>
+
+         
         </div>
       );
     }
 
-    return { movieDetails };
+    return (
+      <div >
+        {movieDetails}
+      </div>
+    );
   }
 }
 
