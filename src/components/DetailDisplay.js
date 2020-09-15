@@ -28,7 +28,7 @@ class DetailDisplay extends Component {
         blogPost: "",
       });
     } else {
-      let displayedNote = { ...this.state.displayedNote };
+      let displayedNote = { ...this.props.displayedNote };
       displayedNote.content = EditorState.createWithContent(
         convertFromRaw(JSON.parse(this.props.displayedNote.content))
       );
