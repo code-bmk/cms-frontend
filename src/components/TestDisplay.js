@@ -48,7 +48,7 @@ class TestDisplay extends Component {
     if (!loading && postInfo) {
       movieDetails = (
         <div>
-          <section class="hero is-medium is-dark is-bold">
+          <section class="hero is-dark is-bold">
             <div class="hero-body">
               <div class="container">
                 <p class="title">{postInfo.title}</p>
