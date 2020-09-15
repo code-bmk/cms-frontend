@@ -43,7 +43,7 @@ class TestDisplay extends Component {
     }
 
     if (loading) {
-      movieDetails = <h1 class="title is-1">Loading</h1>;
+      movieDetails = <progress class="progress" max="100"/>
     }
 
     if (!loading && postInfo) {
