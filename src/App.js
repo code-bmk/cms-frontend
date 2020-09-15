@@ -8,6 +8,7 @@ import DetailDisplay from './components/DetailDisplay';
 import Edit from './components/Edit';
 import Logout from './components/Logout';
 import HomePage from './components/HomePage';
+import TestDisplay from './components/TestDisplay';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
         <Route exact path="/test" component={Test}></Route>
         <Route exact path="/display" component={Display}></Route>
         <Route path="/detaildisplay/:id" component={DetailDisplay}></Route>
+        <Route path="/testdisplay/:id" component={TestDisplay}></Route>
         <Route exact path="/edit" component={Edit}></Route>
         <Route exact path="/logout" component={Logout}></Route>
       </Switch>
