@@ -59,7 +59,9 @@ class TestDisplay extends Component {
               </div>
             </div>
           </section>
+          <br/>
           <div class="container is-fluid">
+          
             <Editor id={postInfo.id} editorState={postInfo.content} readOnly />
           </div>
         </div>
