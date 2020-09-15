@@ -65,6 +65,11 @@ class PostContainer extends React.Component {
                       <p>{post.title}</p>
                     </Link>
                   </div>
+                  <nav class="level is-mobile">
+                  <div class="level-right">
+                    <p>{post.date}</p>
+                  </div>
+                </nav>
                 </div>
               </article>
             </div>
