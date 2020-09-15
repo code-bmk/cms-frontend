@@ -82,8 +82,8 @@ class EditableContainer extends React.Component {
   render() {
     return (
       <div className="container is-fluid">
-        <div class="field is-horizontal">
-          <div class="control">
+        <div class="field">
+          <div class="control is-expanded">
             <input
               class="input"
               type="text"
