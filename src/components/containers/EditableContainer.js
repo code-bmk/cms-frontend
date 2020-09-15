@@ -10,6 +10,7 @@ class EditableContainer extends React.Component {
 		this.state = {
 			displayedNote: "new",
 			posts: [],
+			inputValue: "",
 			editorState: EditorState.createEmpty()
 		};
 	}
@@ -36,8 +37,9 @@ class EditableContainer extends React.Component {
 	let contentState = this.state.editorState.getCurrentContent()
 		let note = {content: convertToRaw(contentState)}
 		note["content"] = JSON.stringify(note.content)
+		note.title = this.state.inputValue
 		console.log(note)
-		this.props.createNote(note.content)
+		this.props.createNote(note)
 	
 }
 
@@ -68,11 +70,17 @@ class EditableContainer extends React.Component {
 			RichUtils.toggleInlineStyle(this.state.editorState, "ITALIC")
 		);
 	};
+	updateInputValue = (evt) => {
+		this.setState({
+		  inputValue: evt.target.value
+		});
+	  }
 
 
 	render() {
 		return (
 			<div className="editorActualContainer">
+				<input value={this.state.inputValue} onChange={this.updateInputValue}></input>
 				<div className="toolbarActual">
 					<button onClick={this.onUnderlineClick}>U</button>
 					<button onClick={this.onBoldClick}>

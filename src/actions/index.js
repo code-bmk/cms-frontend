@@ -29,7 +29,7 @@ export function loadOneNote(nodeId) {
 	};
 }
 
-export function createNote(noteContent) {
+export function createNote(note) {
     console.log("in createNote")
     let token = localStorage.getItem("token");
 	debugger
@@ -42,10 +42,10 @@ export function createNote(noteContent) {
                 "Authorization": "Bearer "+token
 			},
 			body: JSON.stringify({
-                title: "",
+                title: note.title,
                 author: "",
                 status: "",
-                content: noteContent
+                content: note.content
 			})
 		})
 			.then(response => response.json())
