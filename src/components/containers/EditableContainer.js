@@ -83,12 +83,11 @@ class EditableContainer extends React.Component {
     return (
       <div className="container is-fluid">
         <div class="field">
-          <label class="label">Name</label>
           <div class="control">
             <input
               class="input"
               type="text"
-              placeholder="Title"
+              placeholder="Title of the Blog Post"
               value={this.state.inputValue}
               onChange={this.updateInputValue}
             />

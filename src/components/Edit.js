@@ -5,27 +5,23 @@ import { connect } from "react-redux";
 import * as Actions from "../actions";
 
 class Edit extends Component {
-	render() {
-		return (
-			<div className="Edit">
-				<EditableContainer />
-			</div>
-		);
-	}
+  render() {
+    return <EditableContainer />;
+  }
 }
 
 function mapStateToProps(state, props) {
-	return {
-		note: state.displayedNote,
-		fetching : state.fetching,
-		fetched: state.fetched,
-		posts: state.posts,
-		error: state.error,
-	};
+  return {
+    note: state.displayedNote,
+    fetching: state.fetching,
+    fetched: state.fetched,
+    posts: state.posts,
+    error: state.error,
+  };
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators(Actions, dispatch);
+  return bindActionCreators(Actions, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Edit);
