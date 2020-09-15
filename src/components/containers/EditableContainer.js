@@ -83,21 +83,14 @@ class EditableContainer extends React.Component {
     return (
       <div className="container is-fluid">
         <div class="field is-horizontal">
-          <div class="field-label is-normal">
-            <label class="label">Title of Post</label>
-          </div>
-          <div class="field-body">
-            <div class="field">
-              <div class="control">
-                <input
-                  class="input"
-                  type="text"
-                  placeholder="Title of the Blog Post"
-                  value={this.state.inputValue}
-                  onChange={this.updateInputValue}
-                />
-              </div>
-            </div>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              placeholder="Title of the Blog Post"
+              value={this.state.inputValue}
+              onChange={this.updateInputValue}
+            />
           </div>
         </div>
         <div className="field is-grouped">
