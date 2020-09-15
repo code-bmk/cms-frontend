@@ -56,17 +56,14 @@ class TestDisplay extends Component {
               </div>
             </div>
           </section>
-
-          <Editor id={postInfo.id} editorState={postInfo.content} readOnly />
+          <div class="container is-fluid" style={blogStyle}>
+            <Editor id={postInfo.id} editorState={postInfo.content} readOnly />
+          </div>
         </div>
       );
     }
 
-    return (
-      <div class="container is-fluid" style={blogStyle}>
-        {movieDetails}
-      </div>
-    );
+    return { movieDetails };
   }
 }
 
